@@ -1,16 +1,16 @@
-package fx3d;
+ï»¿package fx3d;
 
-/**xyzÀ•W‚ğŠi”[‚·‚é*/
+/**xyzåº§æ¨™ã‚’æ ¼ç´ã™ã‚‹*/
 public class ThreeDimension  implements Cloneable {
 public double x;
 public double y;
 public double z;
 
-/**ƒRƒ“ƒXƒgƒ‰ƒNƒ^*/
+/**ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿*/
 public ThreeDimension( double tx , double ty , double tz ){x =tx;y=ty;z=tz;}
 public ThreeDimension(){x =0.;y=0.;z=0.;}
 
-/**ƒNƒ[ƒ“ì»*/
+/**ã‚¯ãƒ­ãƒ¼ãƒ³ä½œè£½*/
 public ThreeDimension clone(){
 try {
  ThreeDimension td = (ThreeDimension)super.clone();
