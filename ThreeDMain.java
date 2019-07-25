@@ -1,4 +1,4 @@
-package fx3d;
+ï»¿package fx3d;
 
 import javafx.application.Application;
 import javafx.scene.shape.Box;
@@ -10,11 +10,11 @@ import tomojavalib.threedstage.ThreeDStage;
 
 
 public class ThreeDMain extends Application {
-//ƒXƒe[ƒW
+//ã‚¹ãƒ†ãƒ¼ã‚¸
 public ThreeDStage stage = null;
 
 
-//---ƒƒCƒ“---
+//---ãƒ¡ã‚¤ãƒ³---
 public static void main(String[] args) {  Application.launch(args); }
 
 @Override
@@ -25,7 +25,7 @@ return;
 }
 
 private void layout() {
-//” ‚Ì’Ç‰Á
+//ç®±ã®è¿½åŠ 
 /*
 Box box = new Box( 3 , 3 , 3 );
 box.setDrawMode( DrawMode.LINE );
@@ -34,9 +34,9 @@ box.setDrawMode( DrawMode.LINE );
  this.stage.group.getChildren().add( box );
 */
 
-//l‘Ìƒ‚ƒfƒ‹‚Ì’Ç‰Á
+//äººä½“ãƒ¢ãƒ‡ãƒ«ã®è¿½åŠ 
 Body body = new Body();
-body.loadBodyObj( "D:/work/—mÙ/3Dbody/test.obj" );
+body.loadBodyObj( "D:/work/æ´‹è£/3Dbody/test.obj" );
 //body.scale(body.cpoint, 0.002);
 //body.remakeMeshView();
  for( int i=0;i< body.meshview.length;i++ ){
