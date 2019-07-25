@@ -7,6 +7,25 @@ import javafx.scene.shape.TriangleMesh;
 import tomojavalib.util.GetMojiretu;
 
 /**Obj形式の3Dデータを読みこむ
+下記の書式のデータを読み込む
+v は頂点座標
+f はポリゴンを構成する頂点
+テクスチャ、法線情報はあっても読まない。
+
+# test obj
+
+v 0 0 0
+v 1 0 0
+v 0 1 0
+v 1 1 1
+
+g obj1
+f 1 2 3
+
+gobj2
+f 2 3 4
+
+
  * */
 public class ObjReader {
 //読み込む点と三角形一時保管
@@ -57,8 +76,6 @@ return mv;
 /**FX用のTriangleMeshを作成*/
  public TriangleMesh[] cleateTriangleMesh( Triangle3D[][] t3d  )
  {
-//ファイルを読み込んで三角形を作成
-//Triangle3D[][] tr = this.cleateTriangle3D( filename );
 
 // メッシュ
   TriangleMesh[]    tmesh  = new TriangleMesh[t3d.length];
@@ -114,7 +131,6 @@ String s = "";
 Vector <String> v = new Vector();
 Vector <String> f = new Vector();
 Vector <String> g = new Vector();
-//Vector <Vector<String>> vv = new Vector();
 Vector <Vector<String>> ff = new Vector();
 //ファイルを開ける
 try{	tf.inOpen( filename );}catch(Exception e){};
@@ -130,7 +146,6 @@ if( s.indexOf( "g " )==0 ) {
 	 //System.out.println( s );
 	  ff.add( f );
 	 }
-	  //v = new Vector<String>() ;
 	  f = new Vector<String>() ;
  }
 
@@ -200,7 +215,9 @@ f 42211 42121 42212...
 private Triangle3D makeTriangle3D( String s ,int ii){
  Triangle3D t =null;
  GetMojiretu gm = new GetMojiretu();
- String[] tmps = gm.getHairetuFromMojiretu( " " , s ) ;
+ //区切り文字がスペース2つの場合の対処
+ s=s.replace("  ", " ");
+  String[] tmps = gm.getHairetuFromMojiretu( " " , s ) ;
   if( tmps[1].indexOf("/")>-1 ) { tmps[1] = tmps[1].substring(0,tmps[1].indexOf("/")); }
   if( tmps[2].indexOf("/")>-1 ) { tmps[2] = tmps[2].substring(0,tmps[2].indexOf("/")); }
   if( tmps[3].indexOf("/")>-1 ) { tmps[3] = tmps[3].substring(0,tmps[3].indexOf("/")); }
