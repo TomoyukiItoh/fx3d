@@ -1,7 +1,7 @@
-package fx3d;
+ï»¿package fx3d;
 
-/**3‚Â‚Ì3DÀ•W‚ğŠÜ‚ñ‚¾’Pƒ‚ÈOŠpŒ`
- * Objƒtƒ@ƒCƒ‹“Ç‚İ‚İ—p‚Éì¬*/
+/**3ã¤ã®3Dåº§æ¨™ã‚’å«ã‚“ã å˜ç´”ãªä¸‰è§’å½¢
+ * Objãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ç”¨ã«ä½œæˆ*/
 public class Triangle3D {
 public ThreeDimension[] d = null;
 
