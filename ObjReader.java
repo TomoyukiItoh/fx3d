@@ -1,4 +1,4 @@
-package fx3d;
+ï»¿package fx3d;
 
 import java.util.Vector;
 
@@ -6,11 +6,11 @@ import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import tomojavalib.util.GetMojiretu;
 
-/**ObjŒ`®‚Ì3Dƒf[ƒ^‚ğ“Ç‚İ‚±‚Ş
-‰º‹L‚Ì‘®‚Ìƒf[ƒ^‚ğ“Ç‚İ‚Ş
-v ‚Í’¸“_À•W
-f ‚Íƒ|ƒŠƒSƒ“‚ğ\¬‚·‚é’¸“_
-ƒeƒNƒXƒ`ƒƒA–@üî•ñ‚Í‚ ‚Á‚Ä‚à“Ç‚Ü‚È‚¢B
+/**Objå½¢å¼ã®3Dãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿ã“ã‚€
+ä¸‹è¨˜ã®æ›¸å¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
+v ã¯é ‚ç‚¹åº§æ¨™
+f ã¯ãƒãƒªã‚´ãƒ³ã‚’æ§‹æˆã™ã‚‹é ‚ç‚¹
+ãƒ†ã‚¯ã‚¹ãƒãƒ£ã€æ³•ç·šæƒ…å ±ã¯ã‚ã£ã¦ã‚‚èª­ã¾ãªã„ã€‚
 
 # test obj
 
@@ -28,35 +28,35 @@ f 2 3 4
 
  * */
 public class ObjReader {
-//“Ç‚İ‚Ş“_‚ÆOŠpŒ`ˆê•ÛŠÇ
+//èª­ã¿è¾¼ã‚€ç‚¹ã¨ä¸‰è§’å½¢ä¸€æ™‚ä¿ç®¡
 private ThreeDimension[] d =null;
 private Triangle3D[][] t =null;
 private String[] groupname = null;
 
-/**“®ìŒ±—p*/
+/**å‹•ä½œè©¦é¨“ç”¨*/
 public static void main( String[] aa ) {
 ObjReader o = new ObjReader();
-//o.loadObj("D:/work/—mÙ/3Dbody/2015-1.obj");
-o.loadObj("D:/work/—mÙ/3Dbody/Ma_v20170227sam.obj");
+//o.loadObj("D:/work/æ´‹è£/3Dbody/2015-1.obj");
+o.loadObj("D:/work/æ´‹è£/3Dbody/Ma_v20170227sam.obj");
 }
 
-/**ƒRƒ“ƒXƒgƒ‰ƒNƒ^*/
+/**ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿*/
 public ObjReader() {}
 
 public MeshView[] loadObj( String filename ) {
  MeshView[] mv =null;
-//trianglemesh‚Ìì¬
+//trianglemeshã®ä½œæˆ
 TriangleMesh[] tm = loadObjt( filename );
-//MeshView‚Ìì¬
+//MeshViewã®ä½œæˆ
 mv = this.cleateMeshView( tm );
 return mv;
 }
 
 
 public TriangleMesh[] loadObjt( String filename ) {
-//triangle3d‚Ìì¬
+//triangle3dã®ä½œæˆ
 Triangle3D[][] t3d = cleateTriangle3D( filename );
-//trianglemesh‚Ìì¬
+//trianglemeshã®ä½œæˆ
 TriangleMesh[] tm = cleateTriangleMesh( t3d );
 return tm;
 }
@@ -73,15 +73,15 @@ return mv;
 }
 
 
-/**FX—p‚ÌTriangleMesh‚ğì¬*/
+/**FXç”¨ã®TriangleMeshã‚’ä½œæˆ*/
  public TriangleMesh[] cleateTriangleMesh( Triangle3D[][] t3d  )
  {
 
-// ƒƒbƒVƒ…
+// ãƒ¡ãƒƒã‚·ãƒ¥
   TriangleMesh[]    tmesh  = new TriangleMesh[t3d.length];
  for(int iii=0;iii<tmesh.length;iii++) {
   tmesh[iii]  = new TriangleMesh();
-  // “_‚ğì¬
+  // ç‚¹ã‚’ä½œæˆ
   float[] points = new float[ t3d[iii].length * 9 ];
   int pi=0;
   for(int i=0;i<t3d[iii].length;i++){
@@ -92,7 +92,7 @@ return mv;
  }}
 
 
-//coordsì¬
+//coordsä½œæˆ
 float[] texCoords = new float[  t3d[iii].length * 6  ];
 int ti=0;
 for(int i=0;i<t3d[iii].length;i++){
@@ -107,7 +107,7 @@ for(int i=0;i<t3d[iii].length;i++){
  //System.out.println( " ");
 }
 
-//faceì¬
+//faceä½œæˆ
  int[] faces = new int[ (int)(points.length/3.*2) ];
  int fi=0;
   for(int i=0;i<faces.length/2.;i++){
@@ -122,23 +122,23 @@ tmesh[iii].getFaces().addAll( faces );
 return tmesh;
 }
 
-/**ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚Å3ŠpŒ`”z—ñ‚ğ•Ô‚·*/
+/**ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§3è§’å½¢é…åˆ—ã‚’è¿”ã™*/
 public Triangle3D[][] cleateTriangle3D( String filename ) {
 
-//ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ä•K—v‚Èî•ñ‚ğ“Ç‚İ‚Ş
+//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¦å¿…è¦ãªæƒ…å ±ã‚’èª­ã¿è¾¼ã‚€
 tomojavalib.util.TextFile tf = new tomojavalib.util.TextFile();
 String s = "";
 Vector <String> v = new Vector();
 Vector <String> f = new Vector();
 Vector <String> g = new Vector();
 Vector <Vector<String>> ff = new Vector();
-//ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚é
+//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã‚‹
 try{	tf.inOpen( filename );}catch(Exception e){};
 do {
-//1s“Ç‚İ‚Ş
+//1è¡Œèª­ã¿è¾¼ã‚€
 try {	s = tf.read();}catch(Exception e){};
 
-	//ƒOƒ‹[ƒv‚ª‚ ‚ê‚ÎƒOƒ‹[ƒvƒf[ƒ^‚ğŠi”[‚·‚é
+	//ã‚°ãƒ«ãƒ¼ãƒ—ãŒã‚ã‚Œã°ã‚°ãƒ«ãƒ¼ãƒ—ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹
 if( s.indexOf( "g " )==0 ) {
 	 g.add( s );
 	 //System.out.println( s );
@@ -154,21 +154,21 @@ if( s.indexOf( "g " )==0 ) {
 	if( s.indexOf("f ")==0 ) { if(f!=null) {f.add( s ); }}
 
 }while( s.equals("null")==false );
-//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 try {	tf.inClose();}catch(Exception e){};
-//–Êƒf[ƒ^‚ÌŠi”[
+//é¢ãƒ‡ãƒ¼ã‚¿ã®æ ¼ç´
 if(f.size()!=0) {	  ff.add( f );	 }
 
 System.out.println( "v.size() " + v.size() + " ff.size() " + ff.size());
 
-//3DÀ•W”z—ñ‚Ìì¬
+//3Dåº§æ¨™é…åˆ—ã®ä½œæˆ
 d = new ThreeDimension[v.size()];
    for(int i=0;i<d.length;i++) {
     d[i] = makeThreeDimension( v.get(i) );
     //System.out.println( d[i].x +" "+ d[i].y +" "+d[i].z );
  }
 
-//OŠpŒ`‚Ìì¬
+//ä¸‰è§’å½¢ã®ä½œæˆ
 t = new Triangle3D[ff.size()][];
  for(int ii=0;ii<t.length;ii++) {
   f= ff.get(ii);
@@ -177,7 +177,7 @@ for(int i=0;i<t[ii].length;i++) {
  t[ii][i] = makeTriangle3D( f.get(i),ii );
 }}
 
-//ƒOƒ‹[ƒv–¼‚Ìì¬
+//ã‚°ãƒ«ãƒ¼ãƒ—åã®ä½œæˆ
 groupname = new String[ g.size() ];
 for(int i=0;i<groupname.length;i++) {
  groupname[i] = g.get(i).replace("g ", "");
@@ -188,12 +188,12 @@ return t ;
 }
 
 
-/**Objƒtƒ@ƒCƒ‹“à‚Ì1s
+/**Objãƒ•ã‚¡ã‚¤ãƒ«å†…ã®1è¡Œ
  * v -50.839 -273.650 15499.990
 v -51.369 -302.180 15499.980
 v 2684.090 -910.029 6325.000
 v -3139.690 -1191.360 6349.990
- * ‚ğThreeDimension‚É“ü‚ê‚Ä•Ô‚·
+ * ã‚’ThreeDimensionã«å…¥ã‚Œã¦è¿”ã™
  * */
 private ThreeDimension makeThreeDimension( String s ){
  ThreeDimension d =null;
@@ -207,15 +207,15 @@ private ThreeDimension makeThreeDimension( String s ){
  return d;
 }
 
-/**Objƒtƒ@ƒCƒ‹“à‚Ì1s
+/**Objãƒ•ã‚¡ã‚¤ãƒ«å†…ã®1è¡Œ
 f 42211 42210 42121
 f 42211 42121 42212...
- * ‚ğTriangle3D‚É“ü‚ê‚Ä•Ô‚·
+ * ã‚’Triangle3Dã«å…¥ã‚Œã¦è¿”ã™
  * */
 private Triangle3D makeTriangle3D( String s ,int ii){
  Triangle3D t =null;
  GetMojiretu gm = new GetMojiretu();
- //‹æØ‚è•¶š‚ªƒXƒy[ƒX2‚Â‚Ìê‡‚Ì‘Îˆ
+ //åŒºåˆ‡ã‚Šæ–‡å­—ãŒã‚¹ãƒšãƒ¼ã‚¹2ã¤ã®å ´åˆã®å¯¾å‡¦
  s=s.replace("  ", " ");
   String[] tmps = gm.getHairetuFromMojiretu( " " , s ) ;
   if( tmps[1].indexOf("/")>-1 ) { tmps[1] = tmps[1].substring(0,tmps[1].indexOf("/")); }
